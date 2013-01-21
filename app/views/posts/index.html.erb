@@ -1,0 +1,16 @@
+<div style="overflow-x: scroll">
+  <table>
+    <tr>
+      <% @posts.each do |post| %>
+      <td>
+        <%= image_tag "https://graph.facebook.com/#{post.from_id}/picture" %>
+        <%= post.from_name %>
+        <%= post.message %>
+        <%= time_ago_in_words post.created_time %> ago
+        <%= post.likes %>
+        <%= link_to image_tag(post.picture, :size => '130x72'), post, :target => '_blank' %>
+      </td>
+      <% end %>
+    </tr>
+  </table>
+</div>
